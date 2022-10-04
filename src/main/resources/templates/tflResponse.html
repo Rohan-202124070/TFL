@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>TFL-Management-System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<style>
+body {
+	font-family: Arial;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+</style>
+</head>
+<body>
+
+
+
+	<div class="tab">
+		<button th:href="@{/tfl}" class="tablinks"
+			onclick="callApi(event, 'TFLService')" id="tfl">TFL Service</button>
+		<a th:href="@{/history}"><button class="tablinks"
+				onclick="callApi(event, 'History')">History of API Calls</button> </a>
+	</div>
+
+	<div id="TFLService" class="tabcontent">
+		<div class="container">
+			<div align="center">
+				<h1>List Of TFL services</h1>
+			</div>
+			<table class="table table-bordered table-striped">
+				<thead class="table-dark">
+					<tr>
+						<th>Vehicle Id</th>
+						<th>Station Name</th>
+						<th>Line Name</th>
+						<th>Destination Name</th>
+						<th>Towards</th>
+						<th>Expected Arrival</th>
+						<th>Direction</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tfl : ${tflResponse}">
+						<td th:text="${tfl.vehicleId}"></td>
+						<td th:text="${tfl.stationName}"></td>
+						<td th:text="${tfl.lineName}"></td>
+						<td th:text="${tfl.destinationName}"></td>
+						<td th:text="${tfl.towards}"></td>
+						<td th:text="${tfl.expectedArrival}"></td>
+						<td th:text="${tfl.direction}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script>
+		document.getElementById("tfl").click();
+
+		function callApi(evt, action) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+						" active", "");
+			}
+			document.getElementById(action).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+	</script>
+
+
+</body>
+</html>
