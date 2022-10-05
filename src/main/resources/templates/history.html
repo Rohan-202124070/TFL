@@ -56,6 +56,9 @@ body {
 <body>
 
 
+	<div align="center" class="table-dark">
+		<h1>History of API calls</h1>
+	</div>
 
 	<div class="tab">
 		<button th:href="@{/tfl}" class="tablinks"
@@ -65,10 +68,9 @@ body {
 			API Calls</button>
 	</div>
 
-	<div class="form-inline  jusify-content-center card">
+	<div class="form-inline jusify-content-center card">
 		<div class="form-inline">
-			<div
-				class="form-inline  jusify-content-center card">
+			<div class="form-inline jusify-content-center card">
 
 				<div class="card-body">
 					<form th:action="@{/history-search}" th:object="${tfl}"
@@ -80,15 +82,15 @@ body {
 							placeholder="Line Name"> <input type="text"
 							id="DestinationName" name="DestinationName"
 							placeholder="Destination Name"> <input type="text"
-							id="Towards" name="Towards" placeholder="Towards"> 
-							<input class="textbox-n" type="text" onfocus="(this.type='datetime-local')" id="ExpectedArrival" name="ExpectedArrival"
-							placeholder="ExpectedArrival"> 
-							
-							<input type="text"
-							id="Direction" name="Direction" placeholder="Direction">
+							id="Towards" name="Towards" placeholder="Towards"> <input
+							class="textbox-n" type="text"
+							onfocus="(this.type='datetime-local')" id="ExpectedArrival"
+							name="ExpectedArrival" placeholder="ExpectedArrival"> <input
+							type="text" id="Direction" name="Direction"
+							placeholder="Direction">
 
 
-						<button type="submit" class="btn btn-primary">Serach</button>
+						<button type="submit" class="btn table-dark">Serach</button>
 
 
 					</form>
@@ -100,9 +102,6 @@ body {
 
 	<div id="History" class="tabcontent">
 		<div class="container">
-			<div align="center">
-				<h1>History of API calls</h1>
-			</div>
 			<table class="table table-bordered table-striped">
 				<thead class="table-dark">
 					<tr>

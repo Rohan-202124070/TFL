@@ -55,7 +55,9 @@ body {
 <body>
 
 
-
+	<div align="center" class="table-dark">
+		<h1>List of TFL services</h1>
+	</div>
 	<div class="tab">
 		<button th:href="@{/tfl}" class="tablinks"
 			onclick="callApi(event, 'TFLService')" id="tfl">TFL Service</button>
@@ -65,9 +67,7 @@ body {
 
 	<div id="TFLService" class="tabcontent">
 		<div class="container">
-			<div align="center">
-				<h1>List Of TFL services</h1>
-			</div>
+
 			<table class="table table-bordered table-striped">
 				<thead class="table-dark">
 					<tr>
