@@ -13,12 +13,14 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 public class TFLSystemApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		SpringApplication.run(TFLSystemApplication.class, args);
 	}
-
+	
 	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+	public RestTemplate restTemplate(RestTemplateBuilder builder) 
+	{
 		return builder.build();
 	}
 }
